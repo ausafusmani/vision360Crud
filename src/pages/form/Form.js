@@ -17,7 +17,6 @@ import {
   setFormMode,
   updateFormData,
 } from "../../redux/Slice";
-import { useEffect, useState } from "react";
 
 const Form = (props) => {
   const dispatch = useDispatch();
@@ -178,7 +177,6 @@ const Form = (props) => {
               <MenuItem value="Kerala">Kerala</MenuItem>
             </Select>
           </FormControl>
-          {/*Multi dropdown */}
           <FormControl>
             <InputLabel id="favourite-food-label">Favourite Food</InputLabel>
             <Select
@@ -186,16 +184,12 @@ const Form = (props) => {
               variant="outlined"
               name="favouriteFood"
               multiple 
-              // value={[formData.values.favouriteFood]}
-              // // onChange={formData.handleChange}
               onChange={(event) => {
-                let value = event.target.value
                 formData.handleChange({
                   target: { name: 'favouriteFood', value: event.target.value },
                 });
               }}
               value={formData.values.favouriteFood || []}
-              // onChange={handleMultiChange}
               onBlur={formData.handleBlur}
               error={
                 formData.touched.favouriteFood && formData.errors.favouriteFood
