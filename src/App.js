@@ -1,15 +1,22 @@
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import { InputLabel } from "@mui/material";
+import { useSelector } from "react-redux";
 import "./App.css";
+import Form from "./pages/form/Form";
+import BasicTable from "./pages/table/Table";
+import { useEffect, useState } from "react";
 
 function App() {
+  const formState = useSelector((state)=> state.form)
+  const [formMode,setFormMode] = useState('add')
+  useEffect(() => {
+      setFormMode(formState.formMode)
+  }, [formState.formMode])
+  
   return (
-    <Box>
-      <input type="text" placeholder="Name"></input>
-      <input type="text" placeholder="Gender"></input>
-      <input type="password" placeholder="Password"></input>
-    </Box>
+    <>
+       {
+        formMode === '' ?  <BasicTable /> : <Form formData={formState.editFormData}/>
+       }
+    </>
   );
 }
 

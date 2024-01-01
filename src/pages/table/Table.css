@@ -1,0 +1,17 @@
+.table-container {
+  row-gap: 10px;
+  margin: 10px;
+  width: 90%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  margin-left: 4vw;
+  height: 90vh;
+  border-radius: 10px;
+  position: relative;
+}
+
+.button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
